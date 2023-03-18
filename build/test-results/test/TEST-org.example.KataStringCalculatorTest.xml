@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.example.KataStringCalculatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-17T21:55:37" hostname="ELBLANCO" time="0.02">
+<testsuite name="org.example.KataStringCalculatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-18T22:36:16" hostname="ELBLANCO" time="0.022">
   <properties/>
-  <testcase name="be_one()" classname="org.example.KataStringCalculatorTest" time="0.017"/>
+  <testcase name="be_one()" classname="org.example.KataStringCalculatorTest" time="0.019"/>
   <testcase name="be_result_of_calculator()" classname="org.example.KataStringCalculatorTest" time="0.0"/>
   <testcase name="be_zero()" classname="org.example.KataStringCalculatorTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
