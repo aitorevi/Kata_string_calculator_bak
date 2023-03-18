@@ -11,14 +11,12 @@ Punto 3
 "1\n2,3" -> 6
 */
 
-import java.util.List;
-
 public class KataStringCalculator {
 
     public static int Add(String text) {
-        var arrayNumbers = text.split(",");
+        var operationNumbers = ignoreCommasAndLineBreaks(text);
         int resultSum = 0;
-        for (String value : arrayNumbers) {
+        for (String value : operationNumbers) {
             if (!value.equals("") && (!value.equals("\n"))) {
                 resultSum = resultSum + Integer.parseInt(value);
             }
@@ -27,5 +25,9 @@ public class KataStringCalculator {
             }
         }
         return resultSum;
+    }
+
+    private static String[] ignoreCommasAndLineBreaks(String text) {
+        return text.replaceAll("\n",",").split(",");
     }
 }

@@ -22,11 +22,10 @@ class KataStringCalculatorTest {
     void be_result_of_calculator() {
         assertEquals(6, KataStringCalculator.Add("2,2,2"));
     }
-/*
+
     @Test
     void be_result_of_calculator_to_handle_new_lines_between_numbers() {
-        assertEquals(6,KataStringCalculator.Add(List.of("1\n2,3")));
+        assertEquals(6,KataStringCalculator.Add("1\n2,3"));
     }
 
-*/
 }
