@@ -20,6 +20,6 @@ class KataStringCalculatorTest {
 
     @Test
     void be_result_of_calculator() {
-        assertEquals(4, KataStringCalculator.Add(List.of("2", "2")));
+        assertEquals(6, KataStringCalculator.Add(List.of("2", "2", "2")));
     }
 }
