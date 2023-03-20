@@ -12,9 +12,12 @@ Punto 3
 Punto 4
 "//;\n1;2;3" -> 6 *
 Punto 5
-"-1" -> Exception " negatives not allowed"
+"-1" -> Exception " negatives not allowed, -1"
 "-1,3,5,-2" -> Exception " negatives not allowed, -1, -2"
 */
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class KataStringCalculator {
     public static void main(String[] args) {
@@ -23,38 +26,30 @@ public class KataStringCalculator {
 
     public static int Add(String text) {
 
-        int resultSum = 0;
         if (text.equals("")) {
             return 0;
         }
-        if (!text.substring(0, 1).equals("/")) {
+        if (text.charAt(0) != '/') {
             var operationNumbers = refactorTextForExtractNumbersToCalculate(text);
-            for (String value : operationNumbers) {
-                resultSum = resultSum + Integer.parseInt(value);
-            }
-            return resultSum;
+            return operationNumbers.stream().reduce(0, Integer::sum);
         }
         String delimiter = extractDelimiterOfText(text);
-        String[] operationNumbers = refactorTextWithDelimiterForExtractNumbersToCalculate(text, delimiter);
-        for (String value : operationNumbers) {
-            resultSum = resultSum + Integer.parseInt(value);
-        }
-        return resultSum;
+        var operationNumbers = refactorTextWithDelimiterForExtractNumbersToCalculate(text, delimiter);
+        return operationNumbers.stream().reduce(0, Integer::sum);
     }
 
-
-    private static String[] refactorTextForExtractNumbersToCalculate(String text) {
-        return text.replaceAll("\n", ",").split(",");
+    private static List<Integer> refactorTextForExtractNumbersToCalculate(String text) {
+        var textNumbers = List.of(text.replaceAll("\n", ",").split(","));
+        return textNumbers.stream().map(Integer::valueOf).collect(Collectors.toList());
     }
 
     private static String extractDelimiterOfText(String text) {
-        String delimiter = text.substring(2, 3);
-        return delimiter;
+        return text.substring(2, 3);
     }
 
-    private static String[] refactorTextWithDelimiterForExtractNumbersToCalculate(String text, String delimiter) {
+    private static List<Integer> refactorTextWithDelimiterForExtractNumbersToCalculate(String text, String delimiter) {
         String textWithoutDelimiter = text.substring(4);
-        String[] operationNumbers = textWithoutDelimiter.split(delimiter);
-        return operationNumbers;
+        var textNumbers = List.of(textWithoutDelimiter.split(delimiter));
+        return textNumbers.stream().map(Integer::valueOf).collect(Collectors.toList());
     }
 }
