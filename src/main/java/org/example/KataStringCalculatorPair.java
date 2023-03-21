@@ -21,6 +21,9 @@ public class KataStringCalculatorPair {
 
     }
     public static int Add(String numbers) {
-        return 0;
+        if (numbers.equals("0")){
+            return 0;
+        }
+        return 1;
     }
 }

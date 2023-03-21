@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.KataStringCalculatorPairTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-21T11:54:22" hostname="ELBLANCO" time="0.026">
+  <properties/>
+  <testcase name="be_one()" classname="org.example.KataStringCalculatorPairTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
