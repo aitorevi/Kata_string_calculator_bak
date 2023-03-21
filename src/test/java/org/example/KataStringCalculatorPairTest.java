@@ -17,6 +17,6 @@ class KataStringCalculatorPairTest {
 
     @Test
     void be_result_of_calculator() {
-        assertEquals(3, KataStringCalculatorPair.Add("1,2"));
+        assertEquals(6, KataStringCalculatorPair.Add("1,2,3"));
     }
 }
