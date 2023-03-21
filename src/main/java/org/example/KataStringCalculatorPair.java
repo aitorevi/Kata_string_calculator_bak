@@ -20,7 +20,7 @@ public class KataStringCalculatorPair {
     public static void main(String[] args) {
 
     }
-    public int Add(String numbers) {
-
+    public static int Add(String numbers) {
+        return 0;
     }
 }
