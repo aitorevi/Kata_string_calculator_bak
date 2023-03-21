@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.KataStringCalculatorPairTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-21T19:38:50" hostname="ELBLANCO" time="0.033">
+  <properties/>
+  <testcase name="be_one()" classname="org.example.KataStringCalculatorPairTest" time="0.026"/>
+  <testcase name="be_result_of_calculator()" classname="org.example.KataStringCalculatorPairTest" time="0.004"/>
+  <testcase name="be_zero()" classname="org.example.KataStringCalculatorPairTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

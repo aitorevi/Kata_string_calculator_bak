@@ -16,11 +16,23 @@ Punto 5
 "-1,3,5,-2" -> Exception " negatives not allowed, -1, -2"
 */
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class KataStringCalculatorPair {
     public static void main(String[] args) {
 
     }
-    public int Add(String numbers) {
+    public static int Add(String numbers) {
 
+        if (!numbers.equals("")){
+            if (!numbers.contains(",")) {
+                return 1;
+            }
+            var textOperationNumbers = List.of(numbers.split(","));
+            var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
+            return operationNumbers.stream().reduce(0, Integer::sum);
+        }
+        return 0;
     }
 }
