@@ -26,8 +26,7 @@ public class KataStringCalculatorPair {
 
         if (!numbers.equals("")){
 
-            var replaceLineBreakToCommas = numbers.replaceAll("\n",",");
-            var textOperationNumbers = List.of(replaceLineBreakToCommas.split(","));
+            var textOperationNumbers = List.of(numbers.replaceAll("\n",",").split(","));
             var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
             return operationNumbers.stream().reduce(0, Integer::sum);
         }
