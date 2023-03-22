@@ -26,6 +26,6 @@ class KataStringCalculatorPairTest {
     }
     @Test
     void be_result_of_calculator_with_custom_delimiter() {
-        assertEquals(3,KataStringCalculatorPair.Add("//;\n1,2"));
+        assertEquals(3,KataStringCalculatorPair.Add("//;\n1;2"));
     }
 }
