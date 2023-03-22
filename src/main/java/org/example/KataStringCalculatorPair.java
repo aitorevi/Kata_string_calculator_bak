@@ -25,7 +25,6 @@ public class KataStringCalculatorPair {
     public static int Add(String numbers) {
 
         if (!numbers.equals("")){
-
             var textOperationNumbers = List.of(numbers.replaceAll("\n",",").split(","));
             var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
             return operationNumbers.stream().reduce(0, Integer::sum);
