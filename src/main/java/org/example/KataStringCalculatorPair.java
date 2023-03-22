@@ -25,10 +25,9 @@ public class KataStringCalculatorPair {
     public static int Add(String numbers) {
 
         if (!numbers.equals("")){
-            if (!numbers.contains(",")) {
-                return 1;
-            }
-            var textOperationNumbers = List.of(numbers.split(","));
+
+            var replaceLineBreakToCommas = numbers.replaceAll("\n",",");
+            var textOperationNumbers = List.of(replaceLineBreakToCommas.split(","));
             var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
             return operationNumbers.stream().reduce(0, Integer::sum);
         }
