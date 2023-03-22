@@ -17,6 +17,7 @@ Punto 5
 */
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class KataStringCalculatorPair {
     public static void main(String[] args) {
@@ -26,15 +27,28 @@ public class KataStringCalculatorPair {
 
         if (!numbers.equals("")){
             if (numbers.charAt(0) == '/') {
-                var delimiter = String.valueOf(numbers.charAt(2));
-                var textOperationNumbers = List.of(numbers.substring(4).split(delimiter));
-                var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
-                return operationNumbers.stream().reduce(0, Integer::sum);
+                var delimiter = extractDelimiterOfText(numbers);
+                var operationNumbers = refactorTextWithDelimiterForExtractNumbersToCalculate(numbers,delimiter);
+                return solvedCalculation(operationNumbers);
             }
-            var textOperationNumbers = List.of(numbers.replaceAll("\n",",").split(","));
-            var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
-            return operationNumbers.stream().reduce(0, Integer::sum);
+            return solvedCalculation(refactorTextForExtractNumbersToCalculate(numbers));
         }
         return 0;
+    }
+
+    private static String extractDelimiterOfText(String numbers) {
+        return numbers.substring(2, 3);
+    }
+    private static List<Integer> refactorTextWithDelimiterForExtractNumbersToCalculate(String text, String delimiter) {
+        var textNumbers = List.of(text.substring(4).split(delimiter));
+        return textNumbers.stream().map(Integer::valueOf).toList();
+    }
+    private static List<Integer> refactorTextForExtractNumbersToCalculate(String numbers) {
+        var textOperationNumbers = List.of(numbers.replaceAll("\n",",").split(","));
+        var operationNumbers = textOperationNumbers.stream().map(Integer::valueOf).toList();
+        return operationNumbers;
+    }
+    private static Integer solvedCalculation(List<Integer>operationNumbers) {
+        return operationNumbers.stream().reduce(0, Integer::sum);
     }
 }
