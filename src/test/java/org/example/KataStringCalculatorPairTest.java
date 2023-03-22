@@ -19,4 +19,9 @@ class KataStringCalculatorPairTest {
     void be_result_of_calculator() {
         assertEquals(6, KataStringCalculatorPair.Add("1,2,3"));
     }
+
+    @Test
+    void be_result_of_calculator_with_line_breaks() {
+        assertEquals(6, KataStringCalculatorPair.Add("1\n2,3"));
+    }
 }
