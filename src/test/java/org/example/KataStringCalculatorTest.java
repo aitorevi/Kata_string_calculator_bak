@@ -2,8 +2,6 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class KataStringCalculatorTest {
@@ -34,8 +32,20 @@ class KataStringCalculatorTest {
     }
 
     @Test
-    void hay_numeros_negativos() throws NegativeNumberException {
-        assertEquals("Error: Numbers negatives not allowed,(-2) ", KataStringCalculator.Add("1,-2,3"));
+    void be_negative_numbers() {
+        var errorMessage = "Error: Numbers negatives not allowed,(-1)(-9)(-25)";
+        NegativeNumberException capturedException = assertThrows(NegativeNumberException.class, () ->
+                KataStringCalculatorPair.Add("-1,7,-9,-25"));
+        assertEquals(errorMessage,capturedException.getMessage());
     }
+
+    @Test
+    void be_negative_numbers_with_custom_delimiter() {
+        var errorMessage = "Error: Numbers negatives not allowed,(-1)(-9)";
+        NegativeNumberException capturedException = assertThrows(NegativeNumberException.class, () ->
+                KataStringCalculatorPair.Add("//;\n-1;7;-9"));
+        assertEquals(errorMessage,capturedException.getMessage());
+    }
+
 }
 
